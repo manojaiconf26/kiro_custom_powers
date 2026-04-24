@@ -1,0 +1,80 @@
+# SauceDemo Requirements: User Stories & Acceptance Criteria
+
+## 1. User Authentication
+**User Story:** As a registered user, I want to authenticate with my credentials so that I can access the Swag Labs inventory.
+
+### Acceptance Criteria:
+* **AC 01.1: Successful Login**
+    * **Given** I am on the Login page (`https://www.saucedemo.com/`)
+    * **When** I enter a valid username (e.g., `standard_user`)
+    * **And** I enter the valid password `secret_sauce`
+    * **And** I click the "Login" button
+    * **Then** I should be redirected to the Inventory page
+    * **And** the "Products" header should be visible.
+
+* **AC 01.2: Failed Login (Locked Out User)**
+    * **Given** I am on the Login page
+    * **When** I enter the username `locked_out_user`
+    * **And** I enter the valid password `secret_sauce`
+    * **And** I click the "Login" button
+    * **Then** I should see an error container displayed
+    * **And** the error message should read: "Epic sadface: Sorry, this user has been locked out."
+
+---
+
+## 2. Product Inventory & Sorting
+**User Story:** As a customer, I want to view and organize the product list so that I can efficiently choose the items I want to buy.
+
+### Acceptance Criteria:
+* **AC 02.1: Price Sorting (Low to High)**
+    * **Given** I am logged into the Inventory page
+    * **When** I select the "Price (low to high)" option from the sort dropdown
+    * **Then** the products should be rearranged by price in ascending order
+    * **And** the first item should be "Sauce Labs Onesie" at $7.99.
+
+---
+
+## 3. Shopping Cart Management
+**User Story:** As a customer, I want to manage items in my shopping cart so that I can prepare for checkout.
+
+### Acceptance Criteria:
+* **AC 03.1: Add Product to Cart**
+    * **Given** I am on the Inventory page
+    * **When** I click the "Add to cart" button for a specific item (e.g., "Sauce Labs Backpack")
+    * **Then** the shopping cart badge should increment by 1
+    * **And** the button text for that specific item should change to "Remove".
+
+* **AC 03.2: Remove Product from Cart**
+    * **Given** I have an item in my shopping cart
+    * **When** I click the "Remove" button for that item
+    * **Then** the shopping cart badge should decrement by 1 (or disappear if empty)
+    * **And** the button text should revert to "Add to cart".
+
+---
+
+## 4. Checkout Workflow
+**User Story:** As a customer, I want to complete the checkout process so that I can finalize my purchase.
+
+### Acceptance Criteria:
+* **AC 04.1: Information Validation**
+    * **Given** I am on the "Checkout: Your Information" page
+    * **When** I click "Continue" without filling in First Name, Last Name, or Zip Code
+    * **Then** an error message should be displayed indicating the missing field.
+
+* **AC 04.2: Successful Order Completion**
+    * **Given** I have items in my cart and have reached the "Checkout: Overview" page
+    * **When** I click the "Finish" button
+    * **Then** I should be redirected to the "Checkout: Complete!" page
+    * **And** the header should display "Thank you for your order!".
+
+---
+
+## 5. Application Session
+**User Story:** As a user, I want to securely log out so that my session is terminated.
+
+### Acceptance Criteria:
+* **AC 05.1: Logout Functionality**
+    * **Given** I am on any page within the authenticated application
+    * **When** I expand the sidebar menu and click "Logout"
+    * **Then** I should be immediately redirected to the Login page
+    * **And** I should be unable to navigate back to the Inventory page via the browser "Back" button.

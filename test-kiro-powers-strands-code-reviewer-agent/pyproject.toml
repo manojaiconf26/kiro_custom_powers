@@ -1,0 +1,29 @@
+[project]
+name = "code-reviewer-agent"
+version = "0.1.0"
+description = "An AI-powered code review agent built with Strands Agents SDK"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "strands-agents[ollama,openai]",
+    "strands-agents-tools",
+    "pydantic>=2.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+bedrock = [
+    "strands-agents",
+    "boto3",
+]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+code-reviewer = "code_reviewer.main:main"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
