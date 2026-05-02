@@ -1,8 +1,8 @@
 ---
 name: "skill-agent-builder"
 displayName: "Skill & Agent Builder"
-description: "Create, update, and maintain agent skills (open standard), steering files, custom agents, and hooks. Converts prompts and rules templates to skills and steering. Use whenever users want to build skills, create steering files, convert existing prompts to skills, or set up agent hooks and custom agents."
-keywords: ["skill", "steering", "hooks", "custom agent", "skill builder", "prompt conversion", "q developer"]
+description: "Create, update, and maintain agent skills (open standard), steering files, custom agents, and hooks. Converts prompts and rules templates to skills and steering. Use whenever users want to build skills, create steering files, convert existing prompts to skills, or set up agent hooks and custom agents. Also covers building evaluation skills, test generation skills, or any domain-specific agent skill."
+keywords: ["skill", "steering", "hooks", "custom agent", "skill builder", "prompt conversion","agent skills", "agentskill", "open standard", "create skill", "build skill","skill authoring", "create hooks", "skill", "update skill", "update custom agent"]
 author: "Manoj Kumar S"
 ---
 
