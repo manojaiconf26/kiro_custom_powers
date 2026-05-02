@@ -3,7 +3,7 @@ name: "playwright-functional-testing"
 displayName: "Functional Test Automation with Playwright"
 description: "Create automated functional tests for business requirements using Playwright. Guides test structure, Page Object Model, locator strategies, assertions, and CI integration following industry best practices."
 keywords: ["playwright", "functional testing", "e2e testing", "test automation", "browser testing"]
-author: "Kiro Power Builder"
+author: "Manoj Kumar S"
 ---
 
 # Functional Test Automation with Playwright

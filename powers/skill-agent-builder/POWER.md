@@ -3,7 +3,7 @@ name: "skill-agent-builder"
 displayName: "Skill & Agent Builder"
 description: "Create, update, and maintain agent skills (open standard), steering files, custom agents, and hooks. Converts prompts and rules templates to skills and steering. Use whenever users want to build skills, create steering files, convert existing prompts to skills, or set up agent hooks and custom agents."
 keywords: ["skill", "steering", "hooks", "custom agent", "skill builder", "prompt conversion", "q developer"]
-author: "Kiro Community"
+author: "Manoj Kumar S"
 ---
 
 # Skill & Agent Builder
