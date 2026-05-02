@@ -1,18 +1,18 @@
 ---
 name: "skill-agent-builder"
-displayName: "Kiro Skill & Agent Builder"
-description: "Create, update, and maintain Kiro agent skills (open standard), steering files, custom agents, and hooks. Converts prompts and rules templates to Kiro skills and steering. Use whenever users want to build skills, create steering files, convert existing prompts to skills, or set up agent hooks and custom agents."
+displayName: "Skill & Agent Builder"
+description: "Create, update, and maintain agent skills (open standard), steering files, custom agents, and hooks. Converts prompts and rules templates to skills and steering. Use whenever users want to build skills, create steering files, convert existing prompts to skills, or set up agent hooks and custom agents."
 keywords: ["skill", "steering", "hooks", "custom agent", "skill builder", "prompt conversion", "q developer"]
 author: "Kiro Community"
 ---
 
-# Kiro Skill & Agent Builder
+# Skill & Agent Builder
 
-A comprehensive power for creating, updating, and maintaining Kiro agent artifacts: skills, steering files, custom agents, and hooks.
+A comprehensive power for creating, updating, and maintaining agent artifacts: skills, steering files, custom agents, and hooks.
 
 ## Overview
 
-Kiro Skill Builder helps you produce well-structured agent artifacts through a guided, suggestion-first workflow. Before implementing anything, it analyzes your intent, proposes an architecture, and produces a decision log explaining why that design was chosen. Only after your confirmation does it generate the output.
+Skill Builder helps you produce well-structured agent artifacts through a guided, suggestion-first workflow. Before implementing anything, it analyzes your intent, proposes an architecture, and produces a decision log explaining why that design was chosen. Only after your confirmation does it generate the output.
 
 **What it produces:**
 - Agent Skills (open standard SKILL.md format with references, scripts, and assets)
@@ -21,7 +21,7 @@ Kiro Skill Builder helps you produce well-structured agent artifacts through a g
 - Agent hooks (optional, for event-driven automation)
 
 **What it converts:**
-- Q Developer prompts and rules templates into Kiro skills and steering files
+- Q Developer prompts and rules templates into skills and steering files
 
 ## Available Steering Files
 
@@ -47,7 +47,7 @@ Every workflow runs to completion, then invites the user to iterate:
 > "I want to create a skill that helps generate API documentation from OpenAPI specs"
 
 **Converting Q Developer prompts:**
-> "Convert my Q Developer prompt template for code review into a Kiro skill"
+> "Convert my Q Developer prompt template for code review into a skill"
 
 **Adding steering to a project:**
 > "Create a steering file for our team's coding standards"

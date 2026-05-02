@@ -1,6 +1,6 @@
 # Skill Authoring — Complete Guide
 
-This is the single steering file for the Kiro Skill Builder power. It covers creating, updating, and converting skills, plus creating steering files, hooks, and custom agents. All schemas and templates are included at the end.
+This is the single steering file for the Skill Builder power. It covers creating, updating, and converting skills, plus creating steering files, hooks, and custom agents. All schemas and templates are included at the end.
 
 Pick the workflow that matches the user's task and follow it through. Every workflow runs to completion — produce all artifacts, validate, present the result, and then invite the user to request changes.
 
@@ -515,7 +515,7 @@ For each skill, follow the implementation steps from Workflow A, Phase A4.
 
 **Q Developer specific conversions:**
 - Q Developer "rules" → Kiro steering files (persistent context, not task-specific)
-- Q Developer "prompts" with specific tasks → Kiro skills
+- Q Developer "prompts" with specific tasks → Skills
 - Q Developer project-level instructions → Kiro steering (always inclusion)
 - Q Developer language-specific rules → Kiro steering (fileMatch inclusion)
 
