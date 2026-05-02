@@ -31,12 +31,12 @@ This power has a single comprehensive steering file:
 
 ## Workflow Summary
 
-Every workflow runs to completion, then invites the user to iterate:
+Every workflow presents the decision log and proposed structure to the user, then proceeds with implementation:
 
 ```
 1. Capture Intent     → Understand what the user wants
 2. Analyze & Propose  → Determine architecture, list artifacts to produce
-3. Decision Log       → Document WHY this design was chosen
+3. Decision Log       → Document WHY this design was chosen, present structure to user
 4. Implement          → Generate all files
 5. Validate & Present → Check structure, show results, invite changes
 ```

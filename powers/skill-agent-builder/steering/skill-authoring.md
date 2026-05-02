@@ -6,6 +6,20 @@ Pick the workflow that matches the user's task and follow it through. Every work
 
 ---
 
+## Intent-Based Session Continuity
+
+This steering applies based on **intent, not just keywords**. If the conversation context indicates the user is working on skill creation, skill updates, steering files, hooks, or custom agents — even if the current message doesn't explicitly mention those terms — continue applying this steering.
+
+**Examples where this steering should remain active:**
+- User previously asked to create a skill, and now says "change point 3 to use a different approach"
+- User is iterating on a skill structure and says "add error handling to the output"
+- User reviewed a decision log and says "I prefer the alternative you mentioned"
+- User says "update the description" in the context of an ongoing skill session
+
+**How to determine intent:** Look at the conversation history. If any prior turn in this session involved skill/steering/hook/agent creation or modification, treat follow-up messages as continuations of that workflow unless the user clearly shifts to an unrelated topic.
+
+---
+
 ## Table of Contents
 
 - [Workflow A: Create a New Skill](#workflow-a-create-a-new-skill)
@@ -43,6 +57,31 @@ Start by understanding what the user wants. If the conversation already contains
 ## A2: Analyze and Propose
 
 Based on the captured intent, determine the skill architecture.
+
+### Single Skill vs. Multiple Skills
+
+Before designing the structure, evaluate whether the user's intent is best served by a single skill or multiple skills.
+
+**Create multiple skills when:**
+- The user's intent covers clearly distinct domains or concerns (e.g., "evaluation" + "test generation" + "reporting")
+- Different parts of the intent have different trigger contexts (they'd activate in different situations)
+- The combined SKILL.md would exceed 500 lines or become unwieldy
+- Sub-tasks are independently useful (a user might want one without the others)
+- Different parts require different tool sets or dependencies
+
+**Keep as a single skill when:**
+- All parts share the same trigger context and workflow
+- The steps are sequential and tightly coupled (output of one feeds the next)
+- Splitting would create artificial boundaries that hurt usability
+- The combined SKILL.md stays under 500 lines
+
+**When creating multiple skills:**
+- Define clear boundaries and responsibilities for each skill
+- Identify shared references that multiple skills can point to
+- Consider a parent skill that orchestrates the others if they form a pipeline
+- Document inter-skill dependencies
+
+**Always document this decision** in the Decision Log with explicit rationale for why the intent maps to N skills (or 1). Include what alternatives were considered and why they were rejected.
 
 ### Skill Structure
 
@@ -85,15 +124,21 @@ Draft the SKILL.md description field. Make it "pushy" — include specific conte
 
 ---
 
-## A3: Decision Log
+## A3: Decision Log and Structure Preview
 
-Produce a decision log documenting the reasoning behind the architecture.
+Produce a decision log documenting the reasoning behind the architecture. **Present this to the user before proceeding to implementation** — this is informational, not a confirmation gate. The user can see the reasoning and proposed structure, and the workflow continues into implementation immediately after.
 
 ```markdown
 ## Decision Log: {skill-name}
 
 ### Intent
 {One paragraph summarizing what the user wants}
+
+### Skill Scope Decision
+- **Number of skills:** {1 or N}
+- **Reasoning:** {Why this intent maps to a single skill / multiple skills}
+- **If multiple:** {List each skill with its responsibility boundary}
+- **Alternative considered:** {e.g., "Considered a single monolithic skill but rejected because..."}
 
 ### Architecture Chosen
 {List all artifacts being produced with brief descriptions}
@@ -118,6 +163,42 @@ Produce a decision log documenting the reasoning behind the architecture.
 | SKILL.md | {skill-name}/SKILL.md | {purpose} |
 | ... | ... | ... |
 ```
+
+### Present Structure and Decision
+
+Present the decision log to the user before implementing. Include:
+
+1. **Skill scope decision** — single vs. multiple skills, with reasoning
+2. **Proposed structure** — the complete artifact tree showing all skills, steering files, hooks, and custom agents that will be created:
+
+```
+Proposed artifacts:
+Skills:
+  ├── {skill-name}/
+  │   ├── SKILL.md
+  │   ├── references/ (if any)
+  │   ├── scripts/ (if any)
+  │   └── assets/ (if any)
+  └── {skill-name-2}/ (if multiple skills)
+      └── ...
+
+Steering (if any):
+  └── .kiro/steering/{name}.md ({inclusion mode})
+
+Custom Agents (if any):
+  └── .kiro/agents/{name}.md
+
+Hooks (if any):
+  └── .kiro/hooks/{name}.json
+```
+
+3. **Rationale and trade-offs** — why this structure was chosen
+
+Then inform the user and proceed:
+
+> Here's the proposed structure and my reasoning. Proceeding with implementation now — you can request changes at any end.
+
+**Continue directly to A4.** Do not wait for user confirmation.
 
 ---
 
@@ -931,6 +1012,11 @@ fileMatchPattern: "*.ts" # Required only for fileMatch
 
 ### Intent
 {What the user wants to accomplish}
+
+### Skill Scope Decision
+- **Number of skills:** {1 or N}
+- **Reasoning:** {Why this intent maps to a single skill / multiple skills}
+- **If multiple:** {List each skill with its responsibility boundary}
 
 ### Architecture Chosen
 | Artifact | Path | Purpose |
